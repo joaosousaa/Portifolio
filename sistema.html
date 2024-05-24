@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Bibliotecario</title>
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Gemunu+Libre:wght@200..800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Orbitron:wght@400..900&display=swap');
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--secondary-color);
+
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #AFAFAF;
+            border-radius: 15px;
+
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
+        }
+
+        :root {
+            --nav-color: rgba(0, 0, 0, 0.507);
+            --primary-color: #000000;
+            --title-color: #77a6ff;
+            --textp-color: #B3B3B3;
+        }
+
+        .dark-mode {
+            --primary-color: #E5E5E5;
+            --nav-color: #bebebe73;
+            --textp-color: #000000;
+        }
+
+        nav {
+            padding: 3vh;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        h2 {
+            font-family: "Orbitron", sans-serif;
+            color: var(--title-color);
+        }
+
+        p {
+            font-family: "Kdam Thmor Pro", sans-serif;
+            color: var(--textp-color);
+        }
+
+        h5 {
+
+            color: var(--textp-color);
+        }
+
+        .texto {
+            font-size: 1.8vh;
+            width: 40%;
+            padding: 10vh 0 14vh 0;
+        }
+
+        body {
+            background-color: var(--primary-color);
+        }
+
+        .outer-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            height: 90%;
+            border: 0;
+        }
+
+        /*Themes Buton*/
+        #toggle {
+            display: flex;
+            position: fixed;
+            bottom: 1rem;
+            left: 1rem;
+        }
+
+        #toggle input {
+            position: absolute;
+            visibility: hidden;
+        }
+
+        #toggle label {
+            width: 5rem;
+            height: 2.3rem;
+            background-color: transparent;
+            border: 0.1rem solid #77A6FF;
+            border-radius: 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        #toggle label:hover {
+            cursor: pointer;
+        }
+
+        #toggle label::before {
+            content: "";
+            display: block;
+            width: 2rem;
+            height: 2rem;
+            background-color: #77A6FF;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 0.6rem;
+            left: 0.5rem;
+            transform: translateX(0);
+            transition: 500ms;
+        }
+
+        #toggle input:checked+label::before {
+            transform: translateX(2rem);
+        }
+
+        /*Volta*/
+        .top {
+            color: var(--title-color);
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            z-index: 99;
+            cursor: pointer;
+        }
+
+        @media (max-width: 992px) {
+            .texto {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <h2>Fique com o vídeo a baixo:</h2>
+        <p>Conteúdo de uso restrito.</p>
+    </nav>
+    <div class="outer-container">
+
+        <div class="video-container">
+            <iframe src="assets/sistemaBibliotecario.mp4" title="Video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+        <div class="texto">
+            <h5 class="sobreSistema">Sistema inovador para otimizar a organização de livros, empréstimos e
+                informações dos
+                alunos em uma biblioteca escolar. Este sistema oferece acesso rápido e fácil aos recursos da biblioteca,
+                proporcionando uma gestão eficiente e simplificada. Com ele, é possível controlar o acervo de livros,
+                registrar empréstimos e devoluções, e acompanhar os dados dos alunos, garantindo uma experiência mais
+                prática e organizada tanto para os bibliotecários quanto para os estudantes.</h5>
+        </div>
+    </div>
+
+
+    <div id="toggle">
+        <input type="checkbox" id="sw-checkbox">
+        <label for="sw-checkbox" title="Mudar tema">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                    d="M11.38 2.019a7.5 7.5 0 1 0 10.6 10.6C21.662 17.854 17.316 22 12.001 22 6.477 22 2 17.523 2 12c0-5.315 4.146-9.661 9.38-9.981z">
+                </path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                    d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"
+                    fill="rgba(255,255,255,1)"></path>
+            </svg>
+        </label>
+    </div>
+
+    <div>
+        <a href="index.html" class="top">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+                <path
+                    d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+            </svg>
+        </a>
+    </div>
+    <script>
+        //dark mode
+        const darkModeToggle = document.getElementById('sw-checkbox');
+        const body = document.body;
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+
+</html>

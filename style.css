@@ -1,0 +1,810 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--secondary-color);
+
+}
+
+::-webkit-scrollbar-thumb {
+    background: #AFAFAF;
+    border-radius: 15px;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+:root {
+    --nav-color: rgba(0, 0, 0, 0.507);
+    --primary-color: #000000;
+    --secondary-color: #0D0D0D;
+    --title-color: #77a6ff;
+    --textp-color: #B3B3B3;
+    --titleCard-color: #ffffff;
+    --card-color: hsl(0, 0%, 8%);
+    --shadowCard-color: hsla(0, 0%, 100%, 0.192);
+    --shadow-color: rgba(0, 0, 0, 0.267);
+}
+
+.dark-mode {
+    --primary-color: #E5E5E5;
+    --secondary-color: #ffffff;
+    --nav-color: #bebebe73;
+    --textp-color: #000000;
+    --card-color: hsl(0, 0%, 100%);
+    --shadow-color: #646464a8;
+    --shadowCard-color: hwb(0 48% 52% / 0.356);
+    --titleCard-color: #000000;
+}
+
+body {
+    background-color: var(--primary-color);
+}
+
+h1 {
+    color: var(--title-color);
+}
+
+p {
+    color: var(--textp-color);
+}
+
+/*header*/
+header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/joao.png');
+    background-size: 40vw 41vw;
+    background-position: 8vw;
+    background-repeat: no-repeat;
+    animation: fadeIn 4s;
+    transition: background-size 0.3s ease;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Estilos da barra de navegação */
+.navbar-light .navbar-brand:focus,
+.navbar-light .navbar-brand:hover {
+    color: var(--title-color);
+
+}
+
+.navbar {
+    background-color: transparent !important;
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav.sticky {
+    background-color: var(--nav-color) !important;
+}
+
+.navbar-toggler {
+    background-color: var(--title-color);
+}
+
+.navbar-light .navbar-brand {
+    color: var(--title-color);
+    font-size: 2em;
+    font-family: "Orbitron", sans-serif;
+    transition: color 0.3s ease;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1rem;
+    font-size: 1.1em;
+    color: var(--title-color);
+    font-family: "Kdam Thmor Pro", sans-serif;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    transform: scale(1.2);
+}
+
+a:hover {
+    color: var(--title-color);
+    text-decoration: none;
+}
+
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
+    color: var(--title-color);
+}
+
+.navbar-light .navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show>.nav-link {
+    color: var(--titleCard-color);
+    transform: scale(1.2);
+    text-decoration: underline;
+    text-underline-offset: 10px; /* ajuste conforme necessário */
+}
+
+.inicio {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.bi {
+    color: var(--title-color);
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.bi:hover {
+    color: white;
+
+}
+
+.Redes ul {
+    position: absolute;
+    bottom: 0;
+    padding: 40vh 1vh;
+}
+
+.redes {
+    list-style: none;
+    padding-bottom: 1.5vh;
+}
+
+.redes:hover {
+    transform: scale(1.2);
+}
+
+.text {
+    margin: auto;
+    width: 200px;
+    padding: 8vw;
+}
+
+.text h1 {
+    font-size: 3vw;
+    font-family: "Orbitron", sans-serif;
+    color: var(--textp-color);
+}
+
+.text h2 {
+    font-family: "Orbitron", sans-serif;
+    font-size: 1.5vw;
+    color: var(--textp-color);
+}
+
+.text h4 {
+    font-family: "Orbitron", sans-serif;
+    font-size: 1vw;
+    color: var(--title-color);
+}
+
+.text-primary {
+    color: var(--title-color) !important;
+}
+
+.btn-outline-primary {
+    padding: 10px 3rem;
+    border: 2px solid transparent;
+    animation: snakeBorder 3s infinite;
+    margin-top: 18px;
+    font-size: 1vw;
+    color: var(--title-color);
+    border-color: var(--title-color);
+}
+
+.typing-text-container {
+    position: relative;
+    display: inline-block;
+}
+
+#cursor {
+    color: var(--title-color);
+    font-size: 2vw;
+    position: absolute;
+    top: -16px;
+    font-weight: bolder;
+    right: -17px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes snakeBorder {
+    0% {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: #007bff;
+    }
+
+    100% {
+        border-color: transparent;
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* sobre */
+.container,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
+    margin: auto;
+    max-width: 1150px;
+    padding: 0 5vh;
+}
+
+.sobre {
+    background-color: var(--secondary-color);
+}
+
+.inclinacao {
+    width: 100%;
+    height: 75px;
+    background: var(--primary-color);
+    clip-path: polygon(0% 100%, 100% 0%, 100% 100%);
+}
+
+#Inclinacao {
+    background-color: var(--secondary-color);
+    clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+}
+
+.rowSobre {
+    padding: 10vh 0;
+}
+
+.textSobre h1 {
+    font-family: "Orbitron", sans-serif;
+    margin-bottom: 5vh;
+}
+
+.textSobre p {
+    text-align: justify;
+    padding-bottom: 5vh;
+}
+
+.img-redonda {
+    padding-top: 7vh;
+    max-width: 100%;
+    height: auto;
+    animation: subirDescer 1s infinite alternate;
+    display: flex;
+    justify-content: center;
+}
+
+@keyframes subirDescer {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-30px);
+    }
+}
+
+.imgSobre {
+    background-color: var(--title-color);
+    border-radius: 57%;
+    width: 35vh;
+    height: 33vh;
+    margin: auto;
+}
+
+.hologram-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*projetos*/
+
+.projeto {
+    padding: 10vh 0vh;
+    text-align: center;
+}
+
+.projeto h1 {
+    font-family: "Orbitron", sans-serif;
+    margin-bottom: 10vh;
+}
+
+/*cards*/
+.card {
+    box-shadow: -1rem 1rem 1rem var(--shadow-color);
+    padding: 1rem;
+    background-color: var(--card-color);
+    position: relative;
+    transition: background-color 0.3s;
+    border: none;
+}
+
+
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 2.25rem;
+}
+
+.card:hover {
+    transform: scale(1.04);
+    background-color: var(--shadowCard-color);
+}
+
+.card-title {
+    color: var(--titleCard-color);
+    padding: 2vh;
+}
+
+.buttons {
+    display: flex;
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.buttons a:hover {
+    transform: scale(1.2);
+}
+
+.card:hover .buttons {
+    opacity: 1;
+}
+
+.card:hover img {
+    opacity: 0.5;
+}
+
+.card .buttons a {
+    margin-right: 6px;
+    background: #fff;
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 500ms;
+}
+
+.espaco {
+    margin-bottom: 3vh;
+}
+
+.card-text {
+    font-size: 1em;
+}
+
+.cardMais {
+    margin: auto;
+}
+
+.card-footer {
+    border: none;
+    background-color: transparent;
+}
+
+/*tecnologias*/
+.tecnologias {
+    background-color: var(--secondary-color);
+    padding-bottom: 10vh;
+}
+
+.tecnologias h1 {
+    font-family: "Orbitron", sans-serif;
+
+    padding: 8vh 0 8vh 0vh;
+}
+
+.containertec {
+    padding-bottom: 7vh;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.rowTec svg {
+    margin: 2vh 0vh;
+}
+
+.rowTec svg:hover {
+    transform: scale(1.3);
+}
+
+@keyframes moveImages {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/*contatos*/
+
+.contact {
+    margin: auto;
+}
+
+.contact a {
+    color: var(--textp-color);
+    padding-bottom: 1vh;
+    align-items: center;
+}
+
+.contact a:hover {
+    background-color: var(--shadowCard-color);
+    border-radius: 5px;
+    padding: 1vh;
+}
+
+.bi-envelope,
+.bi-phone,
+.whatsappB {
+    padding-right: 0.8vh;
+}
+
+.contact h1 {
+    font-family: "Orbitron", sans-serif;
+    padding-bottom: 2vh;
+
+}
+
+.faleCmg li {
+    list-style-type: none;
+    padding: 1vh;
+
+}
+
+.smartphone {
+    text-align: center;
+    height: 44vh;
+    animation: flutuar 2.5s infinite backwards;
+}
+
+#Contatos .sombra::after {
+    content: "";
+    display: block;
+    width: 7rem;
+    height: 1rem;
+    margin: auto;
+    background-color: rgb(24 24 24 / 61%);
+    border-radius: 100%;
+}
+
+.animacao {
+    padding-top: 2vh;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    bottom: -100px;
+    animation: moveUpDown 2s infinite alternate;
+}
+
+@keyframes moveUpDown {
+    0% {
+        bottom: 0px;
+    }
+
+    100% {
+        bottom: 50px;
+    }
+}
+
+.faleCmg {
+    padding-top: 17vh;
+    padding-bottom: 7vh;
+    border-bottom: 2px solid var(--textp-color);
+}
+
+/*footer*/
+
+.criado h1,
+li {
+    list-style-type: none;
+    color: var(--textp-color);
+}
+
+.horizontalList li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.horizontalList a {
+    font-size: 1.5vw;
+}
+
+.horizontalList {
+    padding-top: 5vh;
+    list-style-type: none;
+    float: right;
+}
+
+.top {
+    color: var(--title-color);
+    display: none;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 99;
+    cursor: pointer;
+}
+
+.top.active {
+    display: block;
+}
+
+.redesFooter {
+    color: var(--textp-color);
+}
+
+footer {
+    padding: 8vh 0vh;
+}
+
+footer h1 {
+    font-family: "Orbitron", sans-serif;
+}
+
+.criado a {
+    color: var(--textp-color);
+}
+
+.criado a:hover {
+    color: var(--title-color);
+}
+
+/*Themes Buton*/
+#toggle {
+    display: flex;
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+}
+
+#toggle input {
+    position: absolute;
+    visibility: hidden;
+}
+
+#toggle label {
+    width: 5rem;
+    height: 2.3rem;
+    background-color: transparent;
+    border: 0.1rem solid #77A6FF;
+    border-radius: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#toggle label:hover {
+    cursor: pointer;
+}
+
+#toggle label::before {
+    content: "";
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    background-color: #77A6FF;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0.6rem;
+    left: 0.5rem;
+    transform: translateX(0);
+    transition: 500ms;
+}
+
+#toggle input:checked+label::before {
+    transform: translateX(2rem);
+}
+
+.top {
+    display: none;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 99;
+    cursor: pointer;
+}
+
+/*Responsivo*/
+@media (max-width: 992px) {
+    header::before {
+        width: 100%;
+        height: 70%;
+        background-size: 38vh 39vh;
+        background-position: center center;
+    }
+
+    .navbar-light .navbar-brand {
+        font-size: 1.8em;
+    }
+
+
+    .navbar-toggler {
+        font-size: 80%;
+    }
+
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .Redes {
+        margin-top: 25vw;
+    }
+
+    .Redes ul {
+        padding: 2vh 0vh;
+    }
+
+    .redes {
+        padding-bottom: 1.4vh;
+    }
+
+    .text {
+        text-align: center;
+        width: auto;
+        padding: 0vw;
+    }
+
+    .text h1 {
+        font-size: 1.5em;
+    }
+
+    .text h2 {
+        font-size: 90%;
+    }
+
+    .text h4 {
+        font-size: 80%;
+    }
+
+    #cursor {
+        font-size: 0.5cm;
+        top: -4px;
+        right: -10px;
+    }
+
+    .btn-outline-primary {
+        font-size: 0.8em;
+    }
+
+    .textSobre h1 {
+        font-size: 2em;
+        text-align: center;
+    }
+
+    .textP {
+        margin: auto;
+
+    }
+
+    .textSobre p {
+        font-size: 0.8em;
+    }
+
+
+    .imgSobre {
+        background-color: var(--title-color);
+        border-radius: 57%;
+        width: 30vh;
+        height: 30vh;
+        margin: auto;
+    }
+
+    .projeto h1 {
+        font-size: 2em;
+    }
+
+    .tecnologias h1 {
+        font-size: 2em;
+    }
+
+    .col-4 {
+        -ms-flex: 0 0 33.333333%;
+        flex: 0 0 33.333333%;
+        max-width: 46.333333%;
+    }
+
+    .contact h1 {
+        font-size: 2em;
+    }
+
+    .contact {
+        text-align: center;
+    }
+
+    .smartphone {
+        height: 50vw;
+    }
+
+    #Contatos .sombra::after {
+        content: "";
+        width: 15vw;
+        height: 2vw;
+    }
+
+    .contact a {
+        font-size: 0.8em;
+    }
+
+    .animacao {
+        padding-top: 13vh;
+    }
+
+
+
+    .horizontalList {
+        padding-top: 2vh;
+        float: none;
+    }
+
+    .horizontalList a {
+        font-size: 5vw;
+    }
+
+    .inicio {
+        flex-direction: row-reverse;
+    }
+}
