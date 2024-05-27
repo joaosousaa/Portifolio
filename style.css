@@ -106,6 +106,7 @@ header::before {
 
 .navbar {
     background-color: transparent !important;
+    backdrop-filter: blur(10px);
     top: 0;
     left: 0;
     width: 100%;
@@ -114,7 +115,7 @@ header::before {
 }
 nav.sticky {
     background-color: var(--nav-color) !important;
-    backdrop-filter: blur(10px);
+    
 }
 
 .navbar-toggler {
