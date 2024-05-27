@@ -106,16 +106,15 @@ header::before {
 
 .navbar {
     background-color: transparent !important;
-    backdrop-filter: blur(10px);
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
+    position: fixed;
 }
-
 nav.sticky {
     background-color: var(--nav-color) !important;
+    backdrop-filter: blur(10px);
 }
 
 .navbar-toggler {
@@ -166,7 +165,6 @@ a:hover {
     margin: 0;
     display: flex;
     flex-direction: row;
-
 }
 
 .bi {
